@@ -24,8 +24,20 @@ class Robot():
             print(self.__name +" is charged at " + str(self.__battery_level) + " %")
         print(self.__name +" has been fully charged")
 
+    def setCurrentSpeed(self,speed):
+        self.__current_speed= speed
+
+    def getCurrentSpeed(self):
+        return self.__current_speed
+    def stop(self):
+        self.__current_speed =0
 r1 = Robot('R2D2');
 print(r1)
 r1.changeState()
 print(r1)
 r1.chargeBattery()
+print(r1.getCurrentSpeed())
+r1.setCurrentSpeed(50)
+print(r1.getCurrentSpeed())
+r1.stop()
+print(r1.getCurrentSpeed())
