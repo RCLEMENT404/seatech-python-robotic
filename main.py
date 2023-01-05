@@ -9,7 +9,7 @@ class Robot():
     __states = ['shutdown', 'running']
 
     def __str__(self) -> str:
-        return "New robot %s created and %s!"%(self.__name,self.currentState)
+        return "My name is %s and i'm currently %s with a battery level of %s %% and  my current speed is %d km/h!"%(self.__name,self.currentState,self.__battery_level,self.__current_speed)
     def __init__(self, name):
         self.__name = name
         self.currentState = self.__states[0]
@@ -41,3 +41,4 @@ r1.setCurrentSpeed(50)
 print(r1.getCurrentSpeed())
 r1.stop()
 print(r1.getCurrentSpeed())
+print(r1)
