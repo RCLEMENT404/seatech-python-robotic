@@ -12,7 +12,8 @@ class Robot():
     def __str__(self) -> str:
         return "My name is %s and i'm currently %s with a battery level of %s %% and  my current speed is %d km/h !"%(self.__name,self.__currentState,self.__battery_level,self.__current_speed)
     def __init__(self, name):
-        self.__name = name
+        if not name =="":
+            self.__name = name
 
     def changeState(self):
         self.__currentState =  self.__states[1] if self.__states[0] else self.__states[0]
