@@ -45,16 +45,24 @@ class Robot():
         self.__power = False;
         self.__currentState = self.__states[0]
 
+
+def wait_until_valid_input():
+    try:
+        speed = int(input("Enter wanted speed :\n"))
+    except ValueError:
+        print("Provide an integer value...")
+        return wait_until_valid_input()
+    return speed
 # ---------------------------------------------
 # Main
 # ---------------------------------------------
-r1 = Robot('R2D2');
+r1 = Robot(input('Enter robot\'s name :\n'));
 print(r1)
 r1.changeState()
 print(r1)
 r1.chargeBattery()
 print(r1)
-r1.setCurrentSpeed(50)
+r1.setCurrentSpeed(wait_until_valid_input())
 print(r1)
 r1.stop()
 print(r1)
