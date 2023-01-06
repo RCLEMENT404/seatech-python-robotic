@@ -42,6 +42,7 @@ class Robot():
     def stop(self):
         self.__current_speed =0
         self.__power = False;
+        self.__currentState = self.__states[0]
 
 # ---------------------------------------------
 # Main
