@@ -40,6 +40,7 @@ class Robot():
         print("Current speed of " + self.__name + " is " + str(self.__current_speed) + " km/h !")
         return self.__current_speed
     def stop(self):
+        print("STOP !!")
         self.__current_speed =0
         self.__power = False;
         self.__currentState = self.__states[0]
