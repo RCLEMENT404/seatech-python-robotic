@@ -57,14 +57,15 @@ def wait_until_valid_input():
 # ---------------------------------------------
 # Main
 # ---------------------------------------------
-r1 = Robot(input('Enter robot\'s name :\n'));
-print(r1)
-r1.changeState()
-print(r1)
-r1.chargeBattery()
-print(r1)
-r1.setCurrentSpeed(wait_until_valid_input())
-print(r1)
-r1.stop()
-print(r1)
-r1.chargeBattery()
+if __name__ =='__main__':
+    r1 = Robot(input('Enter robot\'s name :\n'));
+    print(r1)
+    r1.changeState()
+    print(r1)
+    r1.chargeBattery()
+    print(r1)
+    r1.setCurrentSpeed(wait_until_valid_input())
+    print(r1)
+    r1.stop()
+    print(r1)
+    r1.chargeBattery()
