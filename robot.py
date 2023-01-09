@@ -1,5 +1,5 @@
 from time import sleep
-
+from operator import*
 
 class Robot():
     __name = "<unnamed>"
@@ -45,7 +45,13 @@ class Robot():
         self.__current_speed =0
         self.__power = False;
         self.__currentState = self.__states[0]
+    @classmethod
+    def getOriginalName(cls):
+        print("Original name is "+cls.__name) 
 
+    @staticmethod
+    def computeBinary(bin1,bin2):
+        print("La réponse est " + bin(add(int(bin1,2),int(bin2,2))))
 
 def wait_until_valid_input():
     try:
@@ -69,3 +75,5 @@ if __name__ =='__main__':
     r1.stop()
     print(r1)
     r1.chargeBattery()
+    r1.getOriginalName()
+    Robot.computeBinary("1101","100")
