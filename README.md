@@ -2,6 +2,8 @@
 - [seatech-python-robotic](#seatech-python-robotic)
   - [EXO 1](#exo-1)
     - [Exigences](#exigences)
+  - [EXO 2](#exo-2)
+    - [Exigences](#exigences-1)
 
 ## EXO 1
 
@@ -17,3 +19,14 @@
 * Mon robot doit pouvoir me donner sa vitesse de déplacement
 * Mon robot doit pouvoir arrêter son déplacement sur commande
 * Mon robot doit pouvoir me fournir un résumé de son état global
+
+## EXO 2
+
+### Exigences
+
+* Réutiliser la class Robot faite dans l'exo 1. *Sans copier/coller dans le fichier ;)*
+* Un humain doit posséder un sexe attribuable à sa création
+* Un humain doit pouvoir manger un ou plusieurs aliments
+* Un humain doit pouvoir digérer ce qu'il a mangé *pas très important, faire en dernier si vous avez le temps*
+* Un Cyborg doit être une combinaison d'un humain et d'un robot
+* Bonus : ajouter une méthode fun au Cyborg
