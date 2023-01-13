@@ -1,26 +1,38 @@
+"""
+    Robot class
+    """
 from time import sleep
-from operator import*
+from operator import add
 
 class Robot():
+    """
+    A Robot with a battery
+    """
     __name = "<unnamed>"
     __power = False
     __current_speed = 0
     __battery_level = 0
     __states = ['shutdown', 'running']
-    __currentState = __states[0]
+    __current_state = __states[0]
 
     def __str__(self) -> str:
-        return "My name is %s and i'm currently %s with a battery level of %s %% and  my current speed is %d km/h !"%(self.__name,self.__currentState,self.__battery_level,self.__current_speed)
+        return f"My name is {self.__name} and i'm currently {self.__current_state} with a battery level of {self.__battery_level} % and  my current speed is {self.__current_speed} km/h !"
     def __init__(self, name):
-        if not name =="":
+        if name !="":
             self.__name = name
 
-    def changeState(self):
-        self.__currentState =  self.__states[1] if self.__states[0] else self.__states[0]
-        self.__power = not(self.__power)
+    def change_state(self):
+        """
+        Change robot's state from shutdown to running and from running to shutdown
+        """
+        self.__current_state =  self.__states[1] if self.__states[0] else self.__states[0]
+        self.__power = not self.__power
 
-    def chargeBattery(self):
-        if not self.__battery_level == 100:
+    def charge_battery(self):
+        """
+        Charge robot's battery to the maximum
+        """
+        if self.__battery_level != 100:
             print(self.__name + " is charging ...")
             for i in range(101):
                 sleep(0.1)
@@ -30,30 +42,48 @@ class Robot():
         else:
             print(self.__name +" is already fully charged !")
 
-    def setCurrentSpeed(self,speed):
+    def set_current_speed(self,speed):
+        """
+        Define the speed of the robot
+        """
         if self.__power:
             self.__current_speed= speed
             print("Speed set at "+ str(self.__current_speed) + " km/h !")
         else:
             print(self.__name + " is not powered on !")
 
-    def getCurrentSpeed(self):
+    def get_current_speed(self):
+        """
+        Get the speed of the robot
+        """
         print("Current speed of " + self.__name + " is " + str(self.__current_speed) + " km/h !")
         return self.__current_speed
     def stop(self):
+        """
+        Emergency stop
+        """
         print("STOP !!")
         self.__current_speed =0
-        self.__power = False;
-        self.__currentState = self.__states[0]
+        self.__power = False
+        self.__current_state = self.__states[0]
     @classmethod
-    def getOriginalName(cls):
-        print("Original name is "+cls.__name) 
+    def get_original_name(cls):
+        """
+        Get the default name of a robot
+        """
+        print("Original name is "+cls.__name)
 
     @staticmethod
-    def computeBinary(bin1,bin2):
+    def compute_binary(bin1,bin2):
+        """
+        Compute the sum of 2 binaries
+        """
         print("La réponse est " + bin(add(int(bin1,2),int(bin2,2))))
 
 def wait_until_valid_input():
+    """
+    Function to forbid to enter a string in the asked speed value
+    """
     try:
         speed = int(input("Enter wanted speed :\n"))
     except ValueError:
@@ -64,16 +94,16 @@ def wait_until_valid_input():
 # Main
 # ---------------------------------------------
 if __name__ =='__main__':
-    r1 = Robot(input('Enter robot\'s name :\n'));
+    r1 = Robot(input('Enter robot\'s name :\n'))
     print(r1)
-    r1.changeState()
+    r1.change_state()
     print(r1)
-    r1.chargeBattery()
+    r1.charge_battery()
     print(r1)
-    r1.setCurrentSpeed(wait_until_valid_input())
+    r1.set_current_speed(wait_until_valid_input())
     print(r1)
     r1.stop()
     print(r1)
-    r1.chargeBattery()
-    r1.getOriginalName()
-    Robot.computeBinary("1101","100")
+    r1.charge_battery()
+    r1.get_original_name()
+    Robot.compute_binary("1101","100")

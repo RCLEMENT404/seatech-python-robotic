@@ -1,3 +1,6 @@
+"""
+Vehicles classes
+"""
 from abc import ABCMeta, abstractmethod
 
 
