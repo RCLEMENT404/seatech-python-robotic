@@ -69,15 +69,15 @@ class UGV(GroundVehicle):
         print("Stop !!")
     pass
 
+if __name__ =='__main__':
+    uav = UAV()
+    uav.selectMission("Observation")
+    uav.takeOff()
 
-uav = UAV()
-uav.selectMission("Observation")
-uav.takeOff()
+    ugv = UGV()
+    ugv.selectMission("Analyse")
+    ugv.accelerate()
 
-ugv = UGV()
-ugv.selectMission("Analyse")
-ugv.accelerate()
-
-uuv = UUV()
-uuv.selectMission("Exploration")
-uuv.dive()
+    uuv = UUV()
+    uuv.selectMission("Exploration")
+    uuv.dive()
