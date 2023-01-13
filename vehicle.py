@@ -1,73 +1,86 @@
+"""
+Vehicles classes
+"""
 from abc import ABCMeta, abstractmethod
 
-""" You can use classes below or create your own 👍️"""
 
 class UnmannedVehicle(metaclass=ABCMeta):
-    """ 
+    """
         An autonomous vehicle have to do his mission automatically.
         This mission can be configured by an operator.
     """
     @abstractmethod
-    def selectMission(self,mission):
-        pass
+    def select_mission(self,mission):
+        """
+        Select the mission
+        """
 
 
 class AerialVehicle(UnmannedVehicle,metaclass=ABCMeta):
     """ A vehicle made for ground fields."""
     @abstractmethod
-    def takeOff(self):
-        pass
+    def take_off(self):
+        """
+        Take off from the ground
+        """
     @abstractmethod
     def land(self):
-        pass
+        """
+        Land on the ground
+        """
 
 class GroundVehicle(UnmannedVehicle,metaclass=ABCMeta):
     """ A vehicle made for ground fields."""
     @abstractmethod
     def accelerate(self):
-        pass
+        """
+        Push the accelerator pedal
+        """
     @abstractmethod
     def stop(self):
-        pass
+        """
+        Push the break pedal
+        """
 
 class UnderseaVehicle(UnmannedVehicle,metaclass=ABCMeta):
     """ A vehicle made for ground fields."""
     @abstractmethod
     def dive(self):
-        pass
+        """
+        Dive underwater
+        """
     @abstractmethod
-    def returnToSurface(self):
-        pass
+    def return_to_surface(self):
+        """
+        Go back to the surface
+        """
 
 class UAV(AerialVehicle):
     """Unmanned Aerial Vehicle"""
-    def selectMission(self,mission):
+    def select_mission(self,mission):
         print("UAV mission " + mission+ " selected !")
     def land(self):
         print("Landing...")
-    def takeOff(self):
-        print("Taking off ...")   
-    pass
+    def take_off(self):
+        print("Taking off ...")
 
 class UUV(UnderseaVehicle):
     """Unmanned Undersea Vehicle"""
-    def selectMission(self,mission):
+    def select_mission(self,mission):
         print("UUV mission " + mission+ " selected !")
     def dive(self):
         print("Diving ...")
-    def returnToSurface(self):
+    def return_to_surface(self):
         print("Returning to surface ...")
-    pass
 
 class UGV(GroundVehicle):
     """Unmanned Ground Vehicle"""
-    def selectMission(self,mission):
+    def select_mission(self,mission):
         print("UGV mission " + mission+ " selected !")
     def accelerate(self):
         print("Accelerating ....")
     def stop(self):
         print("Stop !!")
-    pass
 
 if __name__ =='__main__':
     uav = UAV()
