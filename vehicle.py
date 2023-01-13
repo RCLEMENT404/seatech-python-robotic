@@ -84,13 +84,13 @@ class UGV(GroundVehicle):
 
 if __name__ =='__main__':
     uav = UAV()
-    uav.selectMission("Observation")
-    uav.takeOff()
+    uav.select_mission("Observation")
+    uav.take_off()
 
     ugv = UGV()
-    ugv.selectMission("Analyse")
+    ugv.select_mission("Analyse")
     ugv.accelerate()
 
     uuv = UUV()
-    uuv.selectMission("Exploration")
+    uuv.select_mission("Exploration")
     uuv.dive()
