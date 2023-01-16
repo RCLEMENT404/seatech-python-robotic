@@ -16,7 +16,7 @@ class UnmannedVehicle(metaclass=ABCMeta):
         """
 
 
-class AerialVehicle(UnmannedVehicle,metaclass=ABCMeta):
+class AerialVehicle(metaclass=ABCMeta):
     """ A vehicle made for ground fields."""
     @abstractmethod
     def take_off(self):
@@ -29,7 +29,7 @@ class AerialVehicle(UnmannedVehicle,metaclass=ABCMeta):
         Land on the ground
         """
 
-class GroundVehicle(UnmannedVehicle,metaclass=ABCMeta):
+class GroundVehicle(metaclass=ABCMeta):
     """ A vehicle made for ground fields."""
     @abstractmethod
     def accelerate(self):
@@ -42,7 +42,7 @@ class GroundVehicle(UnmannedVehicle,metaclass=ABCMeta):
         Push the break pedal
         """
 
-class UnderseaVehicle(UnmannedVehicle,metaclass=ABCMeta):
+class UnderseaVehicle(metaclass=ABCMeta):
     """ A vehicle made for ground fields."""
     @abstractmethod
     def dive(self):
@@ -55,7 +55,7 @@ class UnderseaVehicle(UnmannedVehicle,metaclass=ABCMeta):
         Go back to the surface
         """
 
-class UAV(AerialVehicle):
+class UAV(UnmannedVehicle,AerialVehicle):
     """Unmanned Aerial Vehicle"""
     def select_mission(self,mission):
         print("UAV mission " + mission+ " selected !")
@@ -64,7 +64,7 @@ class UAV(AerialVehicle):
     def take_off(self):
         print("Taking off ...")
 
-class UUV(UnderseaVehicle):
+class UUV(UnmannedVehicle,UnderseaVehicle):
     """Unmanned Undersea Vehicle"""
     def select_mission(self,mission):
         print("UUV mission " + mission+ " selected !")
@@ -73,7 +73,7 @@ class UUV(UnderseaVehicle):
     def return_to_surface(self):
         print("Returning to surface ...")
 
-class UGV(GroundVehicle):
+class UGV(UnmannedVehicle,GroundVehicle):
     """Unmanned Ground Vehicle"""
     def select_mission(self,mission):
         print("UGV mission " + mission+ " selected !")
