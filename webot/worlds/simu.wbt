@@ -1,0 +1,93 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "../protos/CircleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/MattePaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/toys/protos/RubberDuck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/solids/protos/SolidBox.proto"
+EXTERNPROTO "../protos/Fabtino.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/devices/sick/protos/SickS300.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2522209427968769 0.06343885821329757 -0.9655879593715155 2.813390101105979
+  position 5.773101963127785 1.8298307480691938 4.970878686641983
+}
+TexturedBackground {
+  texture "noon_stormy_empty"
+}
+TexturedBackgroundLight {
+  luminosity 1.5
+}
+RubberDuck {
+  translation 3.7187468014894445 3.7339487042662465 2.1782923355235773
+  rotation 0.023978775618162102 0.0065493974074497295 0.9996910141205897 0.7167215562258865
+  name "duck1"
+  scale 7
+}
+RubberDuck {
+  translation -3.7373123746390675 -3.6948044194795706 2.1782895618644105
+  rotation 0.005121092747816952 -0.008322923575715768 0.9999522505361048 -2.2165598289726907
+  name "duck3"
+  scale 7
+  bodyColor 0.878431 0.105882 0.141176
+}
+RubberDuck {
+  translation -3.726100154820707 3.7440134386742714 2.180441833352229
+  rotation 0.0065073827120674275 -0.001953169111432947 0.9999769192839708 2.402746156509261
+  name "duck4"
+  scale 7
+  bodyColor 0.878431 0.105882 0.141176
+}
+RubberDuck {
+  translation 3.730026108262144 -3.6961796355141487 2.1782882714292735
+  rotation 0.02025615953240873 -0.010754704812905982 -0.9997369775722936 0.7832438475948479
+  name "duck2"
+  scale 7
+  bodyColor 0.180392 0.760784 0.494118
+}
+CircleArena {
+  name "defeat arena"
+  radius 8
+  floorAppearance MattePaint {
+    baseColor 0.300008 0.0119936 0.0119936
+  }
+}
+SolidBox {
+  translation 0 0 2
+  rotation 0.707084957913509 0.707084957913509 0.007856499532372323 0
+  name "arena"
+  size 8 8 0.1
+  appearance PBRAppearance {
+    baseColor 0 0 0
+    baseColorMap ImageTexture {
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+Fabtino {
+  hidden position_0_0 218270.18815191192
+  hidden position_0_1 17514.35517650453
+  hidden position_0_2 218349.78716291275
+  hidden position_0_3 17426.434607641295
+  hidden rotation_1 0 1 0 4.896951107444669
+  hidden rotation_2 0 -0.9999999999999999 0 3.165459912156707
+  hidden rotation_3 0 -1 0 3.4686321922416563
+  hidden rotation_4 0 -1 0 3.1214344748780265
+  translation 0.100147 0.390258 2.06704
+  rotation -0.002200169565007941 -0.0012468597534853222 -0.9999968022922074 1.55967
+  controller "my_controller"
+  frontLidarSlot [
+    SickS300 {
+      name "Sick S300 Front"
+    }
+  ]
+  backLidarSlot [
+    SickS300 {
+      name "Sick S300 Back"
+    }
+  ]
+}
