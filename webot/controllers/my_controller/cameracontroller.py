@@ -9,7 +9,7 @@ class CameraController:
 
     def detect_void(self):
         matrix = RangeFinder.getRangeImage(self.__range)
-        if matrix[50000]== float('inf'):
+        if matrix[48000]== float('inf'):
             return True
         else:
             return False
