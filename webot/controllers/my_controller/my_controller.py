@@ -1,7 +1,6 @@
 """my_controller controller."""
 from fighter import Fighter
 
-
 robot = Fighter()
 timestep = int(robot.getBasicTimeStep())
 
