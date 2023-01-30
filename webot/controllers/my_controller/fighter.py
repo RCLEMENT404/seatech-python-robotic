@@ -3,11 +3,12 @@ from motorcontroller import MotorController
 from lidarcontroller import LidarController
 from positioncontroller import PositionController
 from cartesian import is_theta_equal, is_coordinate_equal
+from cameracontroller import CameraController
 
 
 class Fighter(Robot):
     """Fighter"""
-    ROBOT_ANGULAR_SPEED_IN_DEGREES = 1145.915590
+    ROBOT_ANGULAR_SPEED_IN_DEGREES = 200.915590
     TANGENSIAL_SPEED = 2.0
 
     def __init__(self):
@@ -15,6 +16,7 @@ class Fighter(Robot):
         self.__motor = MotorController(self)
         self.__lidar = LidarController(self)
         self.__position = PositionController(self)
+        self.__camera = CameraController(self)
 
     def __rotate_heading(self, theta_dot):
         if not is_theta_equal(theta_dot, 0):
@@ -38,9 +40,12 @@ class Fighter(Robot):
         self.__motor.forward()
         start_time = self.getTime()
         while True:
+            #if self.__camera.detect_void():
+
             self.step()
             if self.getTime() > start_time + duration:
                 break
+            
         self.__motor.stop()
         self.step()
 
@@ -68,4 +73,8 @@ class Fighter(Robot):
 
     def run(self):
         """Run the robot"""
-        self.move_to_destination([0.0, 0.0])
+        if self.__camera.detect_void() or  self.__lidar.obstacle_avoidance():
+            self.__motor.turn_right()
+        else:
+            self.__motor.forward()
+        #self.move_to_destination([0.0, 0.0])

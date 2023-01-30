@@ -18,10 +18,6 @@ class MotorController:
         self.front_right_motor.setPosition(float('inf'))
         self.back_left_motor.setPosition(float('inf'))
         self.back_right_motor.setPosition(float('inf'))
-        self.ps1 = robot.getDevice('back_left_wheel_joint_sensor')
-        self.ps2 = robot.getDevice('back_right_wheel_joint_sensor')
-        self.ps3 = robot.getDevice('front_left_wheel_joint_sensor')
-        self.ps4 = robot.getDevice('front_right_wheel_joint_sensor')
 
     def __inverse_kinematics_velocity(self, target_speed):
         wheel_radius = 0.1

@@ -10,3 +10,10 @@ class LidarController:
         self.back_lidar.enable(self.__timestep)
         self.front_lidar.enablePointCloud()
         self.back_lidar.enablePointCloud()
+        self._ds = robot.getDevice("distance sensor")
+        self._ds.enable(self.__timestep)
+    
+    def obstacle_avoidance(self):
+        matrix =self.front_lidar.getRangeImage()
+        return any(i < 0.30 for i in matrix)
+            

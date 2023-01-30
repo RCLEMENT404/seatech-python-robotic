@@ -19,7 +19,7 @@ class PositionController:
     def get_robot_bearing(self):
         # calculate bearing angle in degrees
         north = Compass.getValues(self.__compass)
-        rad = math.atan2(north[0], north[2])
+        rad = math.atan2(north[0], north[1])
         bearing = (rad - math.pi / 2) / math.pi * 180
         if bearing < 0:
             bearing += 360
