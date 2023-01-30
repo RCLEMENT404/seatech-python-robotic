@@ -3,7 +3,7 @@ from controller import Motor
 
 class MotorController:
     __motor_speed = [0.0, 0.0, 0.0, 0.0]
-    __max_speed = 2.0
+    __max_speed = 3.8
 
     def __init__(self, robot) -> None:
         self.back_left_motor = robot.getDevice('back_left_wheel_joint')
