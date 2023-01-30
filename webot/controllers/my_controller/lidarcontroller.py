@@ -15,5 +15,5 @@ class LidarController:
     
     def obstacle_avoidance(self):
         matrix =self.front_lidar.getRangeImage()
-        return any(i < 0.30 for i in matrix)
+        return any(i < 0.40 for i in matrix)
             
